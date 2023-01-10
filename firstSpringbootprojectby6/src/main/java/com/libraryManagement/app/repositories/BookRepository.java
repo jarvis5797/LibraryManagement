@@ -1,5 +1,9 @@
 package com.libraryManagement.app.repositories;
 
-public interface BookRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.libraryManagement.app.entities.BookDetails;
+
+public interface BookRepository extends JpaRepository<BookDetails,Long> {
 
 }
