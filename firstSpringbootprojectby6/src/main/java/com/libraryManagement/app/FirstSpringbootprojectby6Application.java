@@ -1,4 +1,4 @@
-package com.example.demo14;
+package com.libraryManagement.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
