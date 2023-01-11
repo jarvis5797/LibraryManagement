@@ -5,6 +5,8 @@ import com.libraryManagement.app.enums.Star_Rating;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -12,6 +14,12 @@ import jakarta.persistence.ManyToOne;
 public class Book_Review {
 	
 	private String comment;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long rating_id;
+	
 	public Book_Review() {
 		
 		// TODO Auto-generated constructor stub
@@ -24,8 +32,7 @@ public class Book_Review {
 		this.bookdetails = bookdetails;
 	}
 
-	@Id
-	private long rating_id;
+	
 
 	@ManyToOne(targetEntity =BookDetails.class,cascade = CascadeType.ALL)
 	@JoinColumn(name="book_id",referencedColumnName = "book_id")
