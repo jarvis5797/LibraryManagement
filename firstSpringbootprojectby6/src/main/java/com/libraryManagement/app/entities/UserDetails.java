@@ -1,15 +1,19 @@
 package com.libraryManagement.app.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class  UserDetails {
 	
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long user_id;
 	private String user_name;
 	private long lend_count;
@@ -54,12 +58,25 @@ public class  UserDetails {
 	public void setUser_email(String user_email) {
 		this.user_email = user_email;
 	}
-	public boolean isAdmin() {
+	public boolean isAdmin(){
 		return isAdmin;
 	}
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
+	
+	//bidirectional purpose
+//	@OneToMany(mappedBy = "user_id")
+//	public List<IssueDetails> issuedetails;
+//
+//
+//	public List<IssueDetails> getIssuedetails() {
+//		return issuedetails;
+//	}
+//
+//	public void setIssuedetails(List<IssueDetails> issuedetails) {
+//		this.issuedetails = issuedetails;
+//	}
 	
 	
 }
