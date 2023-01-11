@@ -2,11 +2,12 @@ package com.libraryManagement.app.enums;
 
 public enum Star_Rating {
 
-     first("first"),
-     second("second"),
-     third("third"),
-     fourth("fourth"),
-     fifth("fifth");
+	 zero("0"),
+     first("1"),
+     second("2"),
+     third("3"),
+     fourth("4"),
+     fifth("5");
      
      public String getRating() {
 		return rating;

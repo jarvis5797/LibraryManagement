@@ -1,71 +1,84 @@
 package com.libraryManagement.app.entities;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
 @Entity
-public class  UserDetails {
-	
-	
+public class UserDetails {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long user_id;
-	private String user_name;
-	private long lend_count;
-	private String user_email;
+	private long userId;
+	private String userName;
+	private long lendCount;
+	private String userEmail;
 	private boolean isAdmin;
-	
-	
+
 	public UserDetails() {
 		super();
-		
+
 	}
-	
+
 	public UserDetails(long user_id, String user_name, long lend_count, String user_email, boolean isAdmin) {
 		super();
-		this.user_id = user_id;
-		this.user_name = user_name;
-		this.lend_count = lend_count;
-		this.user_email = user_email;
+		this.userId = user_id;
+		this.userName = user_name;
+		this.lendCount = lend_count;
+		this.userEmail = user_email;
 		this.isAdmin = isAdmin;
 	}
-	public long getUser_id() {
-		return user_id;
+
+	
+	
+	public long getUserId() {
+		return userId;
 	}
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
+
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
-	public String getUser_name() {
-		return user_name;
+
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public long getLend_count() {
-		return lend_count;
+
+	public long getLendCount() {
+		return lendCount;
 	}
-	public void setLend_count(long lend_count) {
-		this.lend_count = lend_count;
+
+	public void setLendCount(long lendCount) {
+		this.lendCount = lendCount;
 	}
-	public String getUser_email() {
-		return user_email;
+
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-	public boolean isAdmin(){
+
+	public boolean isAdmin() {
 		return isAdmin;
 	}
+
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	
-	//bidirectional purpose
+
+	@Override
+	public String toString() {
+		return "UserDetails [user_id=" + userId + ", user_name=" + userName + ", lend_count=" + lendCount
+				+ ", user_email=" + userEmail + ", isAdmin=" + isAdmin + "]";
+	}
+
+	// bidirectional purpose
 //	@OneToMany(mappedBy = "user_id")
 //	public List<IssueDetails> issuedetails;
 //
@@ -77,6 +90,5 @@ public class  UserDetails {
 //	public void setIssuedetails(List<IssueDetails> issuedetails) {
 //		this.issuedetails = issuedetails;
 //	}
-	
-	
+
 }
