@@ -13,30 +13,42 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class BookDetails {
 	
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long book_id;
+	private long bookId;
 	
 	private long quantity;
 	
-	private String book_name;
+	private String bookName;
 	
 	private String category;
 	
 	
 	@OneToMany(targetEntity = Author.class,orphanRemoval = true,cascade = CascadeType.ALL)
-	@JoinColumn(referencedColumnName = "book_id",name = "book_id")
+	@JoinColumn(referencedColumnName = "bookId",name = "book_id")
 	private List<Author> authors;
 	
 	
 
-	public long getBook_id() {
-		return book_id;
+	public long getBookId() {
+		return bookId;
 	}
 
-	public void setBook_id(long book_id) {
-		this.book_id = book_id;
+	public void setBookId(long bookId) {
+		this.bookId = bookId;
 	}
+
+	public String getBookName() {
+		return bookName;
+	}
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+
+	
 
 	public long getQuantity() {
 		return quantity;
@@ -46,13 +58,7 @@ public class BookDetails {
 		this.quantity = quantity;
 	}
 
-	public String getBook_name() {
-		return book_name;
-	}
 
-	public void setBook_name(String book_name) {
-		this.book_name = book_name;
-	}
 
 	public String getCategory() {
 		return category;
@@ -70,7 +76,11 @@ public class BookDetails {
 		this.authors = authors;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "BookDetails [book_id=" + bookId + ", quantity=" + quantity + ", book_name=" + bookName + ", category="
+				+ category + ", authors=" + authors + "]";
+	}
 	
 	
 	

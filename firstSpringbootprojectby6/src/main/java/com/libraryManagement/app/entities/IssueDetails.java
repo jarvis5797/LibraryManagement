@@ -8,60 +8,59 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-
 import java.util.Date;
-
-
-
 
 @Entity
 public class  IssueDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long issue_id;
-	private Date issue_date;
+	private long issueId;
+	private Date issueDate;
 	
 	
 	@ManyToOne(targetEntity = BookDetails.class,cascade = CascadeType.ALL)
-	@JoinColumn(referencedColumnName = "book_id",name="book_id")
-	private BookDetails book_id;
+	@JoinColumn(referencedColumnName = "bookId",name="book_id")
+	private BookDetails book;
 	
 	@ManyToOne(targetEntity = UserDetails.class,cascade = CascadeType.ALL)
-	@JoinColumn(referencedColumnName = "user_id",name = "user_id")
-	private UserDetails user_id;
+	@JoinColumn(referencedColumnName = "userId",name = "user_id")
+	private UserDetails user;
 	
-	private Date issue_endDate;
+	private Date issueEndDate;
 	private Date return_date;
-	public long getIssue_id() {
-		return issue_id;
+	
+	
+	
+	public long getIssueId() {
+		return issueId;
 	}
-	public void setIssue_id(long issue_id) {
-		this.issue_id = issue_id;
+	public void setIssueId(long issueId) {
+		this.issueId = issueId;
 	}
-	public Date getIssue_date() {
-		return issue_date;
+	public Date getIssueDate() {
+		return issueDate;
 	}
-	public void setIssue_date(Date issue_date) {
-		this.issue_date = issue_date;
+	public void setIssueDate(Date issueDate) {
+		this.issueDate = issueDate;
 	}
-	public BookDetails getBook_id() {
-		return book_id;
+	public BookDetails getBook() {
+		return book;
 	}
-	public void setBook_id(BookDetails book_id) {
-		this.book_id = book_id;
+	public void setBook(BookDetails book) {
+		this.book = book;
 	}
-	public UserDetails getUser_id() {
-		return user_id;
+	public UserDetails getUser() {
+		return user;
 	}
-	public void setUser_id(UserDetails user_id) {
-		this.user_id = user_id;
+	public void setUser(UserDetails user) {
+		this.user = user;
 	}
-	public Date getIssue_endDate() {
-		return issue_endDate;
+	public Date getIssueEndDate() {
+		return issueEndDate;
 	}
-	public void setIssue_endDate(Date issue_endDate) {
-		this.issue_endDate = issue_endDate;
+	public void setIssueEndDate(Date issueEndDate) {
+		this.issueEndDate = issueEndDate;
 	}
 	public Date getReturn_date() {
 		return return_date;
@@ -72,16 +71,21 @@ public class  IssueDetails {
 	public IssueDetails(long issue_id, Date issue_date, BookDetails book_id, UserDetails user_id, Date issue_endDate,
 			Date return_date) {
 		super();
-		this.issue_id = issue_id;
-		this.issue_date = issue_date;
-		this.book_id = book_id;
-		this.user_id = user_id;
-		this.issue_endDate = issue_endDate;
+		this.issueId = issue_id;
+		this.issueDate = issue_date;
+		this.book = book_id;
+		this.user = user_id;
+		this.issueEndDate = issue_endDate;
 		this.return_date = return_date;
 	}
 	public IssueDetails() {
 		
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "IssueDetails [issue_id=" + issueId + ", issue_date=" + issueDate + ", book_id=" + book
+				+ ", user_id=" + user + ", issue_endDate=" + issueEndDate + ", return_date=" + return_date + "]";
 	}
 	
 	

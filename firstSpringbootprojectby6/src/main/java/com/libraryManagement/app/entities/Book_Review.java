@@ -18,7 +18,7 @@ public class Book_Review {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long rating_id;
+	private long ratingId;
 	
 	public Book_Review() {
 		
@@ -28,26 +28,20 @@ public class Book_Review {
 	public Book_Review(String comment, long rating_id, BookDetails bookdetails) {
 		super();
 		this.comment = comment;
-		this.rating_id = rating_id;
+		this.ratingId = rating_id;
 		this.bookdetails = bookdetails;
 	}
 
 	
 
 	@ManyToOne(targetEntity =BookDetails.class,cascade = CascadeType.ALL)
-	@JoinColumn(name="book_id",referencedColumnName = "book_id")
+	@JoinColumn(name="book_id",referencedColumnName = "bookId")
 	public BookDetails bookdetails;
 	
 	@Enumerated
-	private Star_Rating star_rating;
+	private Star_Rating starRating;
 
-	public Star_Rating getStar_rating() {
-		return star_rating;
-	}
 
-	public void setStar_rating(Star_Rating star_rating) {
-		this.star_rating = star_rating;
-	}
 
 	public String getComment() {
 		return comment;
@@ -57,12 +51,12 @@ public class Book_Review {
 		this.comment = comment;
 	}
 
-	public long getRating_id() {
-		return rating_id;
+	public long getRatingId() {
+		return ratingId;
 	}
 
-	public void setRating_id(long rating_id) {
-		this.rating_id = rating_id;
+	public void setRatingId(long ratingId) {
+		this.ratingId = ratingId;
 	}
 
 	public BookDetails getBookdetails() {
@@ -72,6 +66,22 @@ public class Book_Review {
 	public void setBookdetails(BookDetails bookdetails) {
 		this.bookdetails = bookdetails;
 	}
+
+	public Star_Rating getStarRating() {
+		return starRating;
+	}
+
+	public void setStarRating(Star_Rating starRating) {
+		this.starRating = starRating;
+	}
+
+	@Override
+	public String toString() {
+		return "Book_Review [comment=" + comment + ", ratingId=" + ratingId + ", bookdetails=" + bookdetails
+				+ ", starRating=" + starRating + "]";
+	}
+	
+	
 
 
 
